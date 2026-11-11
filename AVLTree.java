@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class AVLTree {
-
     static int height(Bai6 node) {
         return node == null ? 0 : node.height;
     }

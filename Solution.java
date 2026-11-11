@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class Solution {
-    // Chèn một giá trị vào BST
     public static Bai4 insert(Bai4 root, int val) {
         if (root == null) {
             return new Bai4(val);
