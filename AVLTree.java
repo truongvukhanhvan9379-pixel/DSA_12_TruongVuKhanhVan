@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class AVLTree {
     static int height(Bai6 node) {
         return node == null ? 0 : node.height;
@@ -37,7 +36,6 @@ public class AVLTree {
         return y;
     }
 
-    // Chèn khóa key vào cây AVL, trả về gốc mới của cây con
     public static Bai6 insert(Bai6 root, int key) {
         if (root == null) {
             return new Bai6(key);
@@ -48,26 +46,21 @@ public class AVLTree {
         } else if (key > root.key) {
             root.right = insert(root.right, key);
         } else {
-            return root; // khóa trùng: bỏ qua
         }
 
         updateHeight(root);
         int balance = balanceFactor(root);
 
-        // LL
         if (balance > 1 && key < root.left.key) {
             return rotateRight(root);
         }
-        // RR
         if (balance < -1 && key > root.right.key) {
             return rotateLeft(root);
         }
-        // LR
         if (balance > 1 && key > root.left.key) {
             root.left = rotateLeft(root.left);
             return rotateRight(root);
         }
-        // RL
         if (balance < -1 && key < root.right.key) {
             root.right = rotateRight(root.right);
             return rotateLeft(root);
